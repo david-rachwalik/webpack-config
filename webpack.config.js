@@ -12,10 +12,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.(s[ac]|c)ss$/i,
                 // use: ["style-loader", "css-loader"],
                 // WebPack reads arrays right-to-left
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
         ],
     },
