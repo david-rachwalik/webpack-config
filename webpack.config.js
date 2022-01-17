@@ -17,6 +17,11 @@ module.exports = {
                 // WebPack reads arrays right-to-left
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
+            {
+                test: /\.js$/i,
+                exclude: /node_modules/,
+                use: { loader: "babel-loader" },
+            },
         ],
     },
 };
