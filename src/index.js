@@ -1,3 +1,5 @@
+import "./styles/index.css";
+
 const elvenArmor = {
     resistance_physical: 12,
     potency: 4,
