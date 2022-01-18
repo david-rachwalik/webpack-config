@@ -18,10 +18,14 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
             {
-                test: /\.js$/i,
+                test: /\.jsx?$/i,
                 exclude: /node_modules/,
                 use: { loader: "babel-loader" },
             },
         ],
+    },
+    // Series of fallbacks used to resolve import statements
+    resolve: {
+        extensions: [".js", ".jsx"],
     },
 };
