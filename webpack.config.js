@@ -1,14 +1,22 @@
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "development", // https://webpack.js.org/configuration/mode
-    // devtool: "eval-source-map", // https://webpack.js.org/configuration/devtool
     devtool: "source-map", // https://webpack.js.org/configuration/devtool
     devServer: {
         static: "./dist",
         hot: true,
     },
-    plugins: [new MiniCssExtractPlugin()], // https://github.com/webpack-contrib/mini-css-extract-plugin#getting-started
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+        }),
+    ],
     module: {
         rules: [
             {
@@ -31,6 +39,7 @@ module.exports = {
         extensions: [".js", ".jsx"],
     },
     output: {
+        path: path.resolve(__dirname, "dist"),
         assetModuleFilename: "images/[hash]/[ext][query]",
     },
 };
