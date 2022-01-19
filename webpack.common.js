@@ -1,20 +1,22 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        main: "./src/index.js",
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
+        filename: "[name].bundle.js",
         assetModuleFilename: "images/[hash]/[ext][query]",
+        clean: true,
     },
     // Series of fallbacks used to resolve import statements
     resolve: {
         extensions: [".js", ".jsx"],
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
