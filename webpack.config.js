@@ -12,10 +12,12 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset",
+            },
+            {
                 test: /\.(s[ac]|c)ss$/i,
-                // use: ["style-loader", "css-loader"],
-                // WebPack reads arrays right-to-left
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: "" } }, "css-loader", "postcss-loader", "sass-loader"],
             },
             {
                 test: /\.jsx?$/i,
@@ -27,5 +29,8 @@ module.exports = {
     // Series of fallbacks used to resolve import statements
     resolve: {
         extensions: [".js", ".jsx"],
+    },
+    output: {
+        assetModuleFilename: "images/[hash]/[ext][query]",
     },
 };
