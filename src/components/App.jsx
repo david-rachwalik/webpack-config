@@ -1,5 +1,5 @@
-import "../styles/index.scss";
 import React from "react";
+import "../styles/index.scss";
 import "./Items";
 import Recipes from "./Recipes";
 

@@ -1,5 +1,4 @@
-// Importing "react" is still required when using methods from it
-import { useState } from "react";
+import React from "react";
 
 const elvenShieldRecipe = {
     leatherStrips: 2,
@@ -7,15 +6,14 @@ const elvenShieldRecipe = {
     refinedMoonstone: 4,
 };
 
-// ES7 Object spread example
 const elvenGauntletsRecipe = {
-    ...elvenShieldRecipe,
+    ...elvenShieldRecipe, // ES7 Object spread example
     leather: 1,
     refinedMoonstone: 1,
 };
 
 const Recipes = () => {
-    const [recipe, setRecipe] = useState(elvenShieldRecipe);
+    const [recipe, setRecipe] = React.useState(elvenShieldRecipe);
 
     return (
         <div>
